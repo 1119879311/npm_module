@@ -1,4 +1,4 @@
-const busbody = require("await-busboy");
+﻿const busbody = require("await-busboy");
 const fs = require("fs");
 const path = require("path");
 const rootpaht = process.cwd();
@@ -61,7 +61,8 @@ class koaueditor {
             }
             function getfile(savatype) {//读取相对path and filename 
                 var posipath = filepaths ? dirArr(filepaths) : adddir(path.join($self.rootpath, savatype));
-                var relpath = posipath.substr($self.rootpath.length);  var fname = filname ? filname : (new Date().getTime()).toString() + path.extname(part.filename);
+                var relpath = posipath.substr($self.rootpath.length); 
+	        var fname = filname ? filname +path.extname(part.filename): (new Date().getTime()).toString() + path.extname(part.filename);
                 var fpath = path.join(relpath, fname);
                 return {
                     filename: fname,
