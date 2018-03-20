@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+      <script type="text/javascript" charset="utf-8" src="/js/ueditor/ueditor.config.js"></script>
+     <script type="text/javascript" charset="utf-8" src="/js/ueditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="/js/ueditor/lang/zh-cn/zh-cn.js"> </script>
+</head>
+<body>
+<textarea id="editor" name="editor" class="editor" style="width:1160px;height:550px"></textarea>
+</body>
+<script>
+    window.UEDITOR_CONFIG.serverUrl ="/ueditor/ue"
+
+    //工厂方法getEditor创建和引用编辑器实例，如果在闭包下引用该编辑器，直接调用UE.getEditor('editor')
+    var ue = UE.getEditor('editor');
+
+</script>
+</html>
