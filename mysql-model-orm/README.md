@@ -28,14 +28,15 @@ mysql-model-orm 主要是node 操作mysql 的常用的增删改查的封装，�
     - count(filed):总个数
     - sum(filed)：总和
 
+- 直接返回 sql(不执行)
+    - buildSql()
+
 - 事务
   - transaction(option):{Array}
 
 - 原始方法 
     - execsql()
 
-- 直接返回 sql(不执行)
-    - buildSql()
 
 第二类：辅助添加函数,一定要在主要函数前调用
     - table():表名 （有表前缀的直接写）
