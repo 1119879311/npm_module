@@ -1,4 +1,4 @@
-#mysql-model-orm
+##mysql-model-orm
 
 mysql-model-orm 主要是node 操作mysql 的常用的增删改查的封装，主要特点是用法简单，链式调用，主要实现是利用sql 的特点特点进行sql封装，sql的防注入利用的是mysql 模块的方法转义，不用担心这个，默认是用链接池进行连接，主要的方法都是返回promise 
 
@@ -20,7 +20,7 @@ mysql-model-orm 主要是node 操作mysql 的常用的增删改查的封装，�
     - updateMany(data,options)：批量更新,{object}:data 更新的数据;{object}:options:更新的条件
     - thenUpdate(data,where):查询后数据除了本身的其他不重复存在,则更新:{object}:data 更新的数据;{object}:where:查询条件
 
--删除
+- 删除
     - delete():一定要结合where使用
 
 - 聚合函数
@@ -33,10 +33,10 @@ mysql-model-orm 主要是node 操作mysql 的常用的增删改查的封装，�
   - transaction(option):{Array}
 
 - 原始方法 
-  -execsql()
+    - execsql()
 
 - 直接返回 sql(不执行)
- - buildSql()
+    - buildSql()
 
 第二类：辅助添加函数,一定要在主要函数前调用
     - table():表名 （有表前缀的直接写）
@@ -155,7 +155,7 @@ mysql-model-orm 主要是node 操作mysql 的常用的增删改查的封装，�
                     await Model.table("tk_tab").group("status").having({status:1}).select();
             //         res=>sql：select * from tk_tab  group by status  having  status = 1 
             
-            
+
             // 9.join(option):string|object|array;连接查询:分为左右连接，内连接
                     //(1).string： "right join tk_cate as c on a.cid=c.id"
                     //(2).object：{table,join,on}=>{table:"tk_cate as c",join:"right",on:"a.cid=c.id"}
