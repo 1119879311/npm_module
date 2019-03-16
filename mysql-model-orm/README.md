@@ -1,5 +1,4 @@
-##mysql-model-orm
-
+# mysql-model-orm
 mysql-model-orm 主要是node 操作mysql 的常用的增删改查的封装，主要特点是用法简单，链式调用，主要实现是利用sql 的特点特点进行sql封装，sql的防注入利用的是mysql 模块的方法转义，不用担心这个，默认是用链接池进行连接，主要的方法都是返回promise 
 
 要求 node>7.6 ,使用了 async  方法
