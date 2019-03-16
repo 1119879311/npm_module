@@ -6,10 +6,9 @@ mysql-model-orm 主要是node 操作mysql 的常用的增删改查的封装，�
 
 第一类：主要方法：返回promise 
 - 查询
-    - select()
-    - findOne()
-    - findOne()
-    - pageSelect()
+    - select()：查所有数据
+    - findOne()：查一条数据
+    - pageSelect()：分页查询
 
 - 增加
     - add(option):单个、批量添加; {string|object|array} option 
