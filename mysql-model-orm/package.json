@@ -1,0 +1,21 @@
+{
+  "name": "mysql-model-orm",
+  "version": "1.0.0",
+  "description": "mysql-model-orm,orm,model,mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mysql-model-orm",
+    "mysql",
+    "orm",
+    "model",
+    "node"
+  ],
+  "author": "1119879311@qq.com",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}
