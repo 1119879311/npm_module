@@ -36,6 +36,9 @@ mysql-model-orm 主要是node 操作mysql 的常用的增删改查的封装，�
 - 原始方法 
     - execsql()
 
+   参数转义
+     escape()  
+
 
 第二类：辅助添加函数,一定要在主要函数前调用
     - table():表名 （有表前缀的直接写）
@@ -78,9 +81,8 @@ mysql-model-orm 主要是node 操作mysql 的常用的增删改查的封装，�
             await Model.table("tk_tab").field("id").select();
 
 
-            // 4.noField(val):string|array, 查询除了某字段外的所有字段 
+            // 4.noField(val):string|array, 查询除了某字段外的所有字段 ,多表查，只支持主表的，且需要添加别名
             await Model.table("tk_tab").noField("id,status").select();
-
 
             // 5.where(option):string|object|array 按条件查询
             //     (5.1)：string
