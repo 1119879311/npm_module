@@ -1,6 +1,6 @@
 {
   "name": "mysql-model-orm",
-  "version": "1.1.3",
+  "version": "2.1.3",
   "description": "mysql-model-orm,orm,model,mysql",
   "main": "index.js",
   "scripts": {
