@@ -4,13 +4,11 @@ const koa = require("koa");
 const App = new koa();
 const {port} = require("./Config");
 
-App.use(async (ctx,next)=>{
-    console.log("112");
-    next();
-})
+//加载中间件
+require("./Middleware")(App);
 
 // 加载路由
-require("./router")(App)
+require("./Lib/loadRouter")(App)
 
 var httpApp = http.createServer(App.callback()).listen(port);
 httpApp.on("listening",function(){

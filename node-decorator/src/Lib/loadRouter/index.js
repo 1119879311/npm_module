@@ -3,7 +3,7 @@ const {resolve}  = require("path");
 const fs = require("fs");
 let entryPath = process.env.NODE_ENV==="development"?"src":"dist";
 console.log(process.env.NODE_ENV+"环境:执行目录"+entryPath)
-let ctrPath = resolve(entryPath,'controller');
+let ctrPath = resolve(entryPath,'Controller');
 module.exports = (app)=>{
     let  loadCtr = (rootPaths)=>{
         try {

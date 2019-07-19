@@ -20,7 +20,7 @@ function Controller(prefix) {
             if (key !== "constructor") {
                 var fn = actionList[key].value;
                 if (typeof fn == "function" && fn.name != "__before") {
-                    fn.call(obj, router, obj);
+                    fn.call(obj, router);
                 }
 
             }
@@ -31,18 +31,18 @@ function Controller(prefix) {
 function Request(option = {url, method}) {
     return function (target, value, dec) {
         let fn = dec.value;
-        dec.value = (routers, target) => {
+        dec.value = (routers) => {
             routers[option.method](routers.prefixed + option.url, async (ctx, next) => {
                 if (target.__before && typeof target.__before == "function") {
                     // 如果class 有__before 前置函数，
-                    var beforeRes = await target.__before(ctx, next, target);
-                    if (!beforeRes) {
-                       return await fn.call(target, ctx, next, target)
+                    var beforeRes = await target.__before(ctx, next);
+                    if (!beforeRes) {   
+                       return await fn.call(target, ctx, next)
                     }else{
                         return  ctx.body = await beforeRes
                     }
                 } else {
-                    await fn.call(target, ctx, next, target)
+                    await fn.call(target, ctx, next)
                 }
             })
         }

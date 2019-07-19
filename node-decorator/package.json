@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src  --out-dir dist",
-    "dev": "set NODE_ENV=development &&  supervisor  -i ./dist --watch src dev.js ",
-    "start": "npm run build && set NODE_ENV=production  && supervisor --watch dist dist/index.js ",
-    "pm2": "set NODE_ENV=production  && supervisor -i ./src dist  -watch dist"
+    "dev": "set NODE_ENV=development &&  nodemon --watch src dev.js ",
+    "start": "npm run build && set NODE_ENV=production  && nodemon --watch dist production.js",
+    "pm2": "set NODE_ENV=production  && pm2 dist/index.js "
   },
   "keywords": [
     "node",
@@ -22,7 +22,7 @@
     "babel-core": "^6.26.3",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-register": "^6.26.0",
-    "supervisor": "^0.12.0"
+    "nodemon": "^1.19.1"
   },
   "dependencies": {
     "koa": "^2.7.0",
