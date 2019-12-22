@@ -8,7 +8,8 @@ const {port} = require("./Config");
 require("./Middleware")(App);
 
 // 加载路由
-require("./Lib/loadRouter")(App)
+require("./loadRouter")(App)
+
 
 var httpApp = http.createServer(App.callback()).listen(port);
 httpApp.on("listening",function(){

@@ -1,47 +1,53 @@
-const {Controller,GET} = require("../Lib/decoratorRouter")
+const {Controller,GET} = require("../Lib/decorator")
 
 // 示例：给接口写一个拦截权限的装饰器函数 
 function isAoTh(){
     return (target,value,des)=>{
-        var fn =target[value];
+        var fn =des.value;
         des.value = async (ctx,next)=>{
-            target.isAoth = true;
+            // target.isAoth = true;
             if(target.isAoth){
-                return ctx.body = await {isAoth:false}
+                return await {isAoth:false}
             }else{
-                fn.call(target,ctx,next);
+                return  await  fn.call(target,ctx,next);
             } 
         }
        
     }
 }
+// 这是中间件，可以统一给控制器做拦截
+const middleFn = async (ctx,next)=>{
+    ctx.body =await "这是中间件...."
+    // await next();
+}
+
 
 class base{
-
-    async __before(ctx,next){
-        return {status:false,msg:"this is __before"}
+    @isAoTh()   //权限认证
+    async __before__(ctx,next){
+        // return {status:false,msg:"this is  __before__"}
         // return null
     }
 }
 
+
+
 //继承基本类,可以统一在基类的前置函数操作
 
-@Controller()             
+@Controller("/")             
  class index extends base{
     
-    constructor(){
-        super();
-    }
-    // 前置函数(不建议写加装饰器)，如果存在前置函数，该类下所有的方法调用前都会先执行一次，如果有返回值，不再执行后续操作，执行响应客户端，否则继续执行
+    // 前置函数，如果存在前置函数，该类下所有的方法调用前都会先执行一次，如果有返回值，不再执行后续操作，执行响应客户端，否则继续执行
     // async __before(ctx,next){
     //     return {status:false,msg:"this is __before"}
     //     // return null
     // }
    
-    @GET("/wxServer")  //接口
+    
     @isAoTh()   //权限认证
+    @GET("/wxServer")  //接口
     async index(ctx,next){
-        ctx.body = await {msg:"this is index",isAoth:this.isAoth};
+        return await {msg:"this is index",isAoth:this.isAoth};
     }
 
     @GET("/udpae")  
