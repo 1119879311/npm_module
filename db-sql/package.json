@@ -1,0 +1,24 @@
+{
+  "name": "db-sql",
+  "version": "1.0.0",
+  "description": "db-sql,mysql,db,orm",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "db-sql",
+    "mysql",
+    "orm"
+  ],
+  "author": "1119879311@qq.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mysql": "^2.15.15",
+    "@types/node": "^14.0.27",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
