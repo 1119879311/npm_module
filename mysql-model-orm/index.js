@@ -8,7 +8,8 @@ class connect{
             "user": dbconfig.user||'root',
             "password": dbconfig.password,
             "port": dbconfig.port||'3306',//端口
-            "database": dbconfig.database
+            "database": dbconfig.database,
+            "socketPath": dbconfig.socketPath
         })
         this.dbconfig = dbconfig;
 
